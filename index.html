@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lukáš Smékal | Spolehlivé stavební služby v Uničově</title>
+    <meta name="description" content="Lukáš Smékal - profesionální stavební práce v Uničově. Rekonstrukce domů, bytů, zateplování, obklady a dlažby. 20+ let zkušeností s realizací vašich projektů.">
+    <meta name="keywords" content="stavební firma Uničov, rekonstrukce bytů, zateplování domů, obklady dlažby, Lukáš Smékal">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Lukáš Smékal | Spolehlivé stavební služby">
+    <meta property="og:description" content="Transformujeme prostory v domovy. Profesionální stavební práce v Uničově a okolí.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.smekal-stavby.cz">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #2C3E50;
+            --accent: #E67E22;
+            --accent-dark: #D35400;
+            --gray-100: #F8F9FA;
+            --gray-200: #E9ECEF;
+            --gray-300: #DEE2E6;
+            --gray-400: #CED4DA;
+            --gray-500: #ADB5BD;
+            --gray-600: #6C757D;
+            --gray-700: #495057;
+            --gray-800: #343A40;
+            --gray-900: #212529;
+            --white: #ffffff;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
+            --shadow-lg: 0 8px 24px rgba(0,0,0,0.16);
+            --shadow-xl: 0 12px 48px rgba(0,0,0,0.20);
+        }
+
+        [data-theme="dark"] {
+            --primary: #CBD0D2;
+            --accent: #F39C12;
+            --accent-dark: #E67E22;
+            --gray-100: #212529;
+            --gray-200: #343A40;
+            --gray-300: #495057;
+            --gray-400: #6C757D;
+            --gray-500: #9CA3AF;
+            --gray-600: #9CA3AF;
+            --gray-700: #6B7280;
+            --gray-800: #374151;
+            --gray-900: #F8F9FA;
+            --white: #1a1a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--white);
+            color: var(--gray-800);
+            overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: var(--white);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-text {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--accent);
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        [data-theme="dark"] nav {
+            background: rgba(26,26,26,0.98);
+            border-bottom-color: var(--gray-700);
+        }
+
+        nav.scrolled {
+            padding: 1rem 5%;
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 35px;
+            height: 35px;
+            background: var(--accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--gray-700);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .nav-link {
+            color: #ffffff;
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            width: 50px;
+            height: 25px;
+            background: var(--gray-300);
+            border-radius: 25px;
+            position: relative;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .theme-toggle-circle {
+            position: absolute;
+            top: 2.5px;
+            left: 2.5px;
+            width: 20px;
+            height: 20px;
+            background: var(--white);
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        [data-theme="dark"] .theme-toggle-circle {
+            transform: translateX(25px);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .menu-line {
+            width: 25px;
+            height: 2px;
+            background: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)),
+                        url('https://images.pexels.com/photos/544965/pexels-photo-544965.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080') center/cover;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.5rem;
+            background: var(--accent);
+            color: white;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .badge-icon {
+            width: 16px;
+            height: 16px;
+        }
+
+        .hero-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .hero-cta:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Story Section */
+        .story {
+            padding: 120px 5%;
+            background: var(--gray-100);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .story-visual {
+            position: relative;
+        }
+
+        .story-number {
+            font-size: 15rem;
+            font-weight: 900;
+            color: var(--accent);
+            opacity: 0.08;
+            position: absolute;
+            top: -80px;
+            left: -50px;
+            z-index: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        [data-theme="dark"] .story-number {
+            opacity: 0.2;
+        }
+
+        .story-card {
+            position: relative;
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+            z-index: 1;
+            transform: rotate(-2deg);
+            transition: transform 0.3s ease;
+        }
+
+        .story-card:hover {
+            transform: rotate(0deg);
+        }
+
+        .story-card-image {
+            width: 100%;
+            height: 250px;
+            background: url('https://images.pexels.com/photos/585419/pexels-photo-585419.jpeg?auto=compress&cs=tinysrgb&w=800') center/cover;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .story-content h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2rem, 3vw, 3rem);
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+
+        .story-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--gray-700);
+            margin-bottom: 2rem;
+        }
+
+        .story-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--accent);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+            margin-top: 0.5rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 120px 5%;
+            background: white;
+        }
+
+        .services-header {
+            max-width: 800px;
+            margin: 0 auto 5rem;
+            text-align: center;
+        }
+
+        .services-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2rem, 3vw, 3rem);
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .services-subtitle {
+            color: var(--gray-600);
+            font-size: 1.2rem;
+        }
+
+        .services-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray-200);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--accent);
+        }
+
+        .service-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .service-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent, rgba(44, 62, 80, 0.3));
+        }
+
+        .service-content {
+            padding: 2rem;
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .service-description {
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 120px 5%;
+            background: var(--gray-100);
+            position: relative;
+        }
+
+        .process-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .process-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .process-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2rem, 3vw, 3rem);
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .process-steps {
+            position: relative;
+        }
+
+        .process-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gray-300);
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+
+        .process-step {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+            align-items: center;
+            position: relative;
+        }
+
+        .process-step:nth-child(even) {
+            direction: rtl;
+        }
+
+        .process-step:nth-child(even) .step-content {
+            direction: ltr;
+        }
+
+        .step-content {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+
+        .step-number-bg {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--accent);
+            opacity: 0.1;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        [data-theme="dark"] .step-number-bg {
+            opacity: 0.2;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .step-description {
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        .step-image {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 120px 5%;
+            background: white;
+        }
+
+        .portfolio-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .portfolio-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2rem, 3vw, 3rem);
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .portfolio-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            height: 350px;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(44, 62, 80, 0.9), transparent);
+            padding: 2rem;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+
+        .portfolio-category {
+            font-size: 0.875rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .portfolio-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 120px 5%;
+            background: var(--gray-100);
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .contact-info {
+            padding: 4rem;
+            background: white;
+        }
+
+        .contact-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .contact-subtitle {
+            color: var(--gray-600);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-details {
+            list-style: none;
+        }
+
+        .contact-label {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .contact-item {
+            margin-bottom: 2rem;
+        }
+
+        .contact-value {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.1rem;
+            color: var(--gray-800);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gray-100);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+        }
+
+        .contact-map {
+            position: relative;
+            background: var(--gray-200);
+            min-height: 500px;
+        }
+
+        .contact-map iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 5%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2rem, 3vw, 3rem);
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-text {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.2rem 2.5rem;
+            background: white;
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .cta-button {
+            background: white;
+            color: #2C3E50;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 5%;
+            background: #28242C;
+            color: white;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: var(--white);
+                flex-direction: column;
+                justify-content: center;
+                transition: right 0.3s ease;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+            }
+
+            [data-theme="dark"] .nav-menu {
+                background: var(--gray-900);
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+                z-index: 1001;
+            }
+
+            .story-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .process-step {
+                grid-template-columns: 1fr;
+            }
+
+            .process-step:nth-child(even) {
+                direction: ltr;
+            }
+
+            .process-line {
+                display: none;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-map {
+                min-height: 400px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .story-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        [data-theme="dark"] .story-text {
+            color: #9CA3AF;
+        }
+
+        [data-theme="dark"] .service-description {
+            color: #9CA3AF;
+        }
+
+        [data-theme="dark"] .step-description {
+            color: #9CA3AF;
+        }
+
+        [data-theme="dark"] .contact-subtitle {
+            color: #9CA3AF;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="loader-text">LS</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <div class="logo-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                    </svg>
+                </div>
+                Lukáš Smékal
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Domů</a></li>
+                <li><a href="#about" class="nav-link">O nás</a></li>
+                <li><a href="#services" class="nav-link">Služby</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#contact" class="nav-link">Kontakt</a></li>
+                <li>
+                    <div class="theme-toggle" id="themeToggle">
+                        <div class="theme-toggle-circle">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="themeIcon">
+                                <circle cx="12" cy="12" r="5"/>
+                                <line x1="12" y1="1" x2="12" y2="3"/>
+                                <line x1="12" y1="21" x2="12" y2="23"/>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                                <line x1="1" y1="12" x2="3" y2="12"/>
+                                <line x1="21" y1="12" x2="23" y2="12"/>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                            </svg>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                    20+ let zkušeností
+                </div>
+                <h1 class="hero-title">Stavíme vaše sny na pevných základech</h1>
+                <p class="hero-subtitle">
+                    Profesionální stavební práce s důrazem na kvalitu, spolehlivost a spokojenost zákazníka. 
+                    Od rekonstrukcí po novostavby - jsme tu pro vás.
+                </p>
+                <a href="#contact" class="hero-cta">
+                    Získat nezávaznou nabídku
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story fade-in" id="about">
+        <div class="story-container">
+            <div class="story-visual">
+                <div class="story-number">20+</div>
+                <div class="story-card">
+                    <div class="story-card-image"></div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--primary);">Náš příběh</h3>
+                    <p style="color: var(--gray-700); line-height: 1.8;">
+                        Od roku 2003 budujeme nejen domy, ale i důvěru. Každý projekt je pro nás osobní výzvou a závazkem k dokonalosti.
+                    </p>
+                </div>
+            </div>
+            <div class="story-content">
+                <h2>Více než stavební firma. Jsme partneři vašich vizí.</h2>
+                <p class="story-text">
+                    Firma Lukáš Smékal představuje záruku kvality, spolehlivosti a profesionálního přístupu ke každému projektu. 
+                    Z malé rodinné firmy jsme vyrostli v respektovaného partnera pro stavební projekty všech velikostí.
+                </p>
+                <p class="story-text">
+                    Specializujeme se na komplexní rekonstrukce, moderní zateplování, precizní obkladačské práce a mnoho dalšího. 
+                    Každý projekt přistupujeme individuálně s důrazem na kvalitu a dlouhodobou spokojenost našich klientů.
+                </p>
+                <div class="story-stats">
+                    <div class="stat">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Dokončených projektů</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Spokojených klientů</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Expertů v týmu</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services fade-in" id="services">
+        <div class="services-header">
+            <h2 class="services-title">Naše služby</h2>
+            <p class="services-subtitle">
+                Komplexní stavební práce pod jednou střechou
+            </p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-image" style="background-image: url('https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=600');"></div>
+                <div class="service-content">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <line x1="9" y1="9" x2="15" y2="9"/>
+                            <line x1="9" y1="15" x2="15" y2="15"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Rekonstrukce domů a bytů</h3>
+                    <p class="service-description">
+                        Kompletní přeměna vašeho prostoru. Od demolice po finální úpravy, s důrazem na funkčnost a moderní design.
+                    </p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-image" style="background-image: url('https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=600');"></div>
+                <div class="service-content">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Zateplování a termofasády</h3>
+                    <p class="service-description">
+                        Snižte náklady na energie až o 40%. Moderní izolační systémy s dlouhou životností a zárukou kvality.
+                    </p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-image" style="background-image: url('https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=600');"></div>
+                <div class="service-content">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <rect x="2" y="7" width="20" height="14" rx="2"/>
+                            <path d="M16 7V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v3"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Obklady a dlažby</h3>
+                    <p class="service-description">
+                        Precizní pokládka keramiky pro interiéry i exteriéry. Velkoformátové dlažby, mozaiky i přírodní kámen.
+                    </p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-image" style="background-image: url('https://images.pexels.com/photos/416322/pexels-photo-416322.jpeg?auto=compress&cs=tinysrgb&w=600');"></div>
+                <div class="service-content">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8"/>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Sádrokartonové konstrukce</h3>
+                    <p class="service-description">
+                        Moderní řešení pro interiéry. Příčky, podhledy, atypické konstrukce s perfektním provedením.
+                    </p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-image" style="background-image: url('https://images.pexels.com/photos/162539/architecture-building-amsterdam-blue-sky-162539.jpeg?auto=compress&cs=tinysrgb&w=600');"></div>
+                <div class="service-content">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polygon points="10 8 16 12 10 16 10 8"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Zemní a výkopové práce</h3>
+                    <p class="service-description">
+                        Příprava základů, terénní úpravy, výkopy pro bazény. Profesionální technika a zkušený tým.
+                    </p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-image" style="background-image: url('https://images.pexels.com/photos/1109541/pexels-photo-1109541.jpeg?auto=compress&cs=tinysrgb&w=600');"></div>
+                <div class="service-content">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Kompletní řemeslné práce</h3>
+                    <p class="service-description">
+                        Zednické, malířské, instalatérské práce. Vše pod jednou střechou pro váš maximální komfort.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process fade-in">
+        <div class="process-container">
+            <div class="process-header">
+                <h2 class="process-title">Jak postupujeme</h2>
+                <p style="color: var(--gray-600); font-size: 1.2rem;">
+                    Transparentní proces od první schůzky po předání klíčů
+                </p>
+            </div>
+            <div class="process-steps">
+                <div class="process-line"></div>
+                
+                <div class="process-step">
+                    <div class="step-content">
+                        <span class="step-number-bg">01</span>
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">Konzultace</h3>
+                        <p class="step-description">
+                            Osobní setkání, pochopení vašich potřeb a vizí. Bezplatný návrh řešení a první kalkulace.
+                        </p>
+                    </div>
+                    <div class="step-image" style="background-image: url('https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=600');"></div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-content">
+                        <span class="step-number-bg">02</span>
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">Projekt & Rozpočet</h3>
+                        <p class="step-description">
+                            Detailní projektová dokumentace a transparentní kalkulace bez skrytých nákladů.
+                        </p>
+                    </div>
+                    <div class="step-image" style="background-image: url('https://images.pexels.com/photos/834892/pexels-photo-834892.jpeg?auto=compress&cs=tinysrgb&w=600');"></div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-content">
+                        <span class="step-number-bg">03</span>
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">Realizace</h3>
+                        <p class="step-description">
+                            Profesionální provedení s pravidelnou komunikací o průběhu prací. Dodržování termínů.
+                        </p>
+                    </div>
+                    <div class="step-image" style="background-image: url('https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=600');"></div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-content">
+                        <span class="step-number-bg">04</span>
+                        <div class="step-number">4</div>
+                        <h3 class="step-title">Předání & Záruka</h3>
+                        <p class="step-description">
+                            Důkladná kontrola kvality, předání díla a dlouhodobá záruka na všechny naše práce.
+                        </p>
+                    </div>
+                    <div class="step-image" style="background-image: url('https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg?auto=compress&cs=tinysrgb&w=600');"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio fade-in" id="portfolio">
+        <div class="portfolio-header">
+            <h2 class="portfolio-title">Naše realizace</h2>
+            <p style="color: var(--gray-600); font-size: 1.2rem;">
+                Každý projekt je jedinečný příběh úspěšné transformace
+            </p>
+        </div>
+        <div class="portfolio-grid">
+            <div class="portfolio-item" style="background-image: url('https://images.pexels.com/photos/1643389/pexels-photo-1643389.jpeg?auto=compress&cs=tinysrgb&w=600');">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-category">Rekonstrukce</div>
+                    <div class="portfolio-name">Vila Panorama, Uničov</div>
+                </div>
+            </div>
+            <div class="portfolio-item" style="background-image: url('https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=600');">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-category">Zateplení</div>
+                    <div class="portfolio-name">Bytový dům Generála Svobody</div>
+                </div>
+            </div>
+            <div class="portfolio-item" style="background-image: url('https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg?auto=compress&cs=tinysrgb&w=600');">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-category">Koupelny</div>
+                    <div class="portfolio-name">Luxusní wellness zóna</div>
+                </div>
+            </div>
+            <div class="portfolio-item" style="background-image: url('https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=600');">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-category">Novostavba</div>
+                    <div class="portfolio-name">Rodinný dům Pod Šibeníkem</div>
+                </div>
+            </div>
+            <div class="portfolio-item" style="background-image: url('https://images.pexels.com/photos/1571463/pexels-photo-1571463.jpeg?auto=compress&cs=tinysrgb&w=600');">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-category">Interiér</div>
+                    <div class="portfolio-name">Moderní loft centrum</div>
+                </div>
+            </div>
+            <div class="portfolio-item" style="background-image: url('https://images.pexels.com/photos/259962/pexels-photo-259962.jpeg?auto=compress&cs=tinysrgb&w=600');">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-category">Fasáda</div>
+                    <div class="portfolio-name">Historická vila - renovace</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact fade-in" id="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2 class="contact-title">Spojme se</h2>
+                <p class="contact-subtitle">
+                    Máte dotaz nebo zájem o mé služby? Neváhejte mě kontaktovat.
+                </p>
+                
+                <ul class="contact-details">
+                    <li class="contact-item">
+                        <div class="contact-label">ADRESA</div>
+                        <div class="contact-value">
+                            <div class="contact-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                            </div>
+                            Pod Šibeníkem 1385, 783 91 Uničov
+                        </div>
+                    </li>
+                    <li class="contact-item">
+                        <div class="contact-label">E-MAIL</div>
+                        <div class="contact-value">
+                            <div class="contact-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                                    <path d="m22 7-10 5L2 7"/>
+                                </svg>
+                            </div>
+                            info@smekal-stavby.cz
+                        </div>
+                    </li>
+                    <li class="contact-item">
+                        <div class="contact-label">TELEFON</div>
+                        <div class="contact-value">
+                            <div class="contact-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3"/>
+                                    <path d="M15 2a3 3 0 0 1 3 3v1M15 8l3 3-3 3"/>
+                                </svg>
+                            </div>
+                            +420 777 123 456
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="contact-map">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2573.8563901892!2d17.1214!3d49.7689!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47124e7f69e6c5b7%3A0x400af0f6615b6d0!2sPod%20%C5%A0iben%C3%ADkem%201385%2C%20783%2091%20Uni%C4%8Dov!5e0!3m2!1scs!2scz!4v1234567890"
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 class="cta-title">Připraveni začít váš projekt?</h2>
+            <p class="cta-text">
+                Získejte nezávaznou kalkulaci ještě dnes a přesvědčte se o kvalitě našich služeb.
+            </p>
+            <a href="tel:+420777123456" class="cta-button">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3"/>
+                    <path d="M15 2a3 3 0 0 1 3 3v1M15 8l3 3-3 3"/>
+                </svg>
+                Zavolejte nám
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Lukáš Smékal</div>
+            <p class="footer-text">Stavíme vaše sny na pevných základech</p>
+            <p class="footer-text">© 2025 Lukáš Smékal. Všechna práva vyhrazena.</p>
+        </div>
+    </footer>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Lukáš Smékal - Stavební firma",
+        "description": "Profesionální stavební práce v Uničově. Rekonstrukce, zateplování, obklady a dlažby.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Pod Šibeníkem 1385",
+            "addressLocality": "Uničov",
+            "postalCode": "783 91",
+            "addressCountry": "CZ"
+        },
+        "telephone": "+420777123456",
+        "email": "info@smekal-stavby.cz"
+    }
+    </script>
+
+    <script>
+        // Preloader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').classList.add('hidden');
+            }, 1000);
+        });
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const body = document.body;
+
+        // Check for saved theme preference
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        body.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const theme = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            body.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            updateThemeIcon(theme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                themeIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+            } else {
+                themeIcon.innerHTML = '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+            }
+        }
+
+        // Mobile Menu
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth Scroll for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Counter Animation
+        const animateCounter = (element, target, duration = 2000) => {
+            let start = 0;
+            const increment = target / (duration / 16);
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target + (element.textContent.includes('+') ? '+' : element.textContent.includes('%') ? '%' : '');
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start) + (element.textContent.includes('+') ? '+' : element.textContent.includes('%') ? '%' : '');
+                }
+            }, 16);
+        };
+
+        // Trigger counter animation when stats section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                    entry.target.classList.add('animated');
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach(stat => {
+                        const value = parseInt(stat.textContent);
+                        animateCounter(stat, value);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsSection = document.querySelector('.story-stats');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        console.log('Lukáš Smékal - Professional Construction Website Initialized');
+    </script>
+</body>
+</html>
