@@ -556,6 +556,13 @@
             border-radius: 8px;
         }
 
+        /* Crop koupelny v lightboxu - ořez 20% shora a zdola */
+        .lightbox-image.crop-koupelny {
+            clip-path: inset(20% 0 20% 0);
+            max-height: 90vh;
+            height: auto;
+        }
+
         .lightbox-close {
             position: absolute;
             top: 20px;
@@ -1332,9 +1339,17 @@
         function updateLightboxInfo() {
             const caption = document.getElementById('lightboxCaption');
             const counter = document.getElementById('lightboxCounter');
+            const lightboxImage = document.getElementById('lightboxImage');
             
             caption.textContent = currentCategory.charAt(0).toUpperCase() + currentCategory.slice(1);
             counter.textContent = `${currentIndex + 1} / ${currentGallery.length}`;
+            
+            // Přidat crop class pro koupelny
+            if (currentCategory === 'koupelny') {
+                lightboxImage.classList.add('crop-koupelny');
+            } else {
+                lightboxImage.classList.remove('crop-koupelny');
+            }
         }
 
         // Portfolio items click
